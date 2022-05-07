@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-
 // Jay mentioned using modular routing
 app.use('/api', api);
 
@@ -28,14 +27,14 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))
 });
 
-// Other takes you to homepage
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'))
-});
-
 // Route for notes
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'))
+});
+
+// Other takes you to homepage
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'))
 });
 
 // Listener from 11-01-24

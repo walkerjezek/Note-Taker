@@ -1,16 +1,15 @@
 // Needs a get, post, and delete(bonus) request
 // Ref: 11-01-13
 
-// API Route
 // constants:
 const notes = require('express').Router();
 const fs = require('fs');
 const util = require('util');
 
-const readFromFile = util.promisify(fs.readFile);
-// write to file
-const writeToFile = (destination, content) =>
-    fs.writeFile(destination, JSON.stringify(content, null, '/t'))
+
+// read file from db/db.json
+
+// write to file at db/db.json
 
 
 // Get 
@@ -28,10 +27,11 @@ notes.post('/notes', (req, res) => {
 });
 
 
+
 // Delete
 // How do I specify which one gets deleted? index.js has an "ID" line?
 // notes.delete
 
 
-// export
+// Export
 module.exports = notes;

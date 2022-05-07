@@ -6,39 +6,39 @@ const util = require('util');
 // Route
 const api = require('./routes/htmlRoute.js');
 
-// express server
+// Set app = express server
 const app = express();
 
 // Set the port to 3001 or whatever is available
 const PORT = process.env.PORT || 3001
 
-// middleware
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
 
-// Jay mentioned using other routes?
+// Jay mentioned using modular routing
 app.use('/api', api);
 
-// for the routes look at week 11 classes
-// route homepage
+// For the routes look at week 11 classes
+// Route for homepage
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))
 });
 
-// other takes you to homepage
+// Other takes you to homepage
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))
 });
 
-// route notes
+// Route for notes
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'))
 });
 
 // Listener from 11-01-24
 app.listen(PORT, () =>
-    console.log(`App listening at http://localhost:${PORT} 🚀`)
+    console.log(`App listening at http://localhost:${PORT} 🚀 `)
 );

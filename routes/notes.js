@@ -9,7 +9,8 @@ const util = require('util');
 
 const readFromFile = util.promisify(fs.readFile);
 // write to file
-// const writeToFile()
+const writeToFile = (destination, content) =>
+    fs.writeFile(destination, JSON.stringify(content, null, '/t'))
 
 
 // Get 
@@ -21,8 +22,10 @@ notes.get('/notes', (req, res) => {
 
 // Post
 notes.post('/notes', (req, res) => {
-    
-})
+    res.json(`${req.method} request received`);
+    console.info(req.rawHeaders);
+    console.info(`${req.method} request received`);
+});
 
 
 // Delete

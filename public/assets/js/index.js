@@ -109,7 +109,6 @@ const handleNewNoteView = (e) => {
 };
 
 const handleRenderSaveBtn = () => {
-  console.log(noteTitle.value, noteText.value);
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
   } else {
@@ -120,6 +119,7 @@ const handleRenderSaveBtn = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
+
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }

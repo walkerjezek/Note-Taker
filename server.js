@@ -22,14 +22,10 @@ app.use(express.static('public'));
 // Jay mentioned using other routes?
 app.use('/api', api);
 
+// for the routes look at week 11 classes
 // route homepage
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))
-});
-
-// route notes
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/notes.html'))
 });
 
 // other takes you to homepage
@@ -37,6 +33,10 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))
 });
 
+// route notes
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html'))
+});
 
 // Listener from 11-01-24
 app.listen(PORT, () =>
